@@ -7,19 +7,37 @@ janela = tk.Tk()
 janela.title("formulário")
 janela.geometry("300x300")
 
-tk.Label(janela , text= "nome: ").grid(row=0, column=0)
+def enviar():
+    nome = entrada_nome.get()
+    estado = combo_estado.get()
+    sexo = opc.get()
+
+    sexo_texto ="masculino" if sexo == 1 else "feminino"
+
+    msg= f"nome: {nome}\n  Estado{estado}\n sexo: {sexo_texto}"
+    messagebox.showinfo("dados enviados", msg)
+
+
+
+tk.Label(janela, text="formulário de cadastro" ,font=("Arial" ,14)).grid(column=1,pady= 20)
+tk.Label(janela , text= "nome: ").grid(row=1, column=0)
 entrada_nome = tk.Entry(janela ,font=("Arial"))
-entrada_nome.grid(row=0, column=1)
+entrada_nome.grid(row=1, column=1)
+
 opc= tk.IntVar()
 
+tk.Label(janela, text="sexo:").grid(row=3, column=0)
+tk.Radiobutton(janela, text= "masculino",font= ("Arial") ,value =1,variable=opc)\
+    .grid(row=4,column=1)
+tk.Radiobutton(janela, text= "feminino",font= ("Arial") , value =2,variable=opc)\
+    .grid(row=5,column=1)
 
-tk.Label(janela, text="sexo:").grid(row=2, column=0)
-frame_sx = tk.Frame(janela)
-frame_sx.grid(row=3 , column=1 , padx=10 , pady= 5 , sticky="w")
-tk.Radiobutton(frame_sx, text= "masculino",font= ("Arial") ,value =1,variable=opc)\
-    .pack(anchor="w")
-tk.Radiobutton(frame_sx, text= "feminino",font= ("Arial") , value =2,variable=opc)\
-    .pack(anchor="w")
+tk.Label(janela, text="Estado: ",font=("Arial")).grid(row=6, column=0)
+combo_estado = ttk.Combobox(janela, values= ["MG" , "SP" , "RJ" , "RN" , "BA"])
+combo_estado.grid(row=6, column=1)
+
+tk.Button(janela, text= "enviar", command= enviar).grid(row=7, column=1, pady=20)
+
 
 
 
