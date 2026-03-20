@@ -24,7 +24,7 @@ def enviar():
     if atuacao_valor == 5:
         atuacao = "Estágiario t.i"
     
-    
+
     msg= f"Nome: {nome}\n Idade: {idade}\n Escolaridae: {escola} \n Area de atuação: {atuacao}"
     messagebox.showinfo("dados enviados", msg)
 
@@ -39,10 +39,10 @@ tk.Label(janela , text= "idade: ").grid(row=2, column=0)
 entrada_idade = tk.Entry(janela ,font=("Arial"))
 entrada_idade.grid(row=2, column=1)
 
-#dados
+
 tk.Label(janela, text="Dados profissionais " ,font=("Arial" ,14)).grid(column=1,pady= 20)
 
-#escolaridade
+#escola
 tk.Label(janela, text="Escolaridade: ",font=("Arial")).grid(row=4, column=0)
 escolaridade = ttk.Combobox(janela, values= ["ensino fundamental completo" , "ensino fundamental incompleto" , "ensino médio completo" , "ensino médio incompleto" , "ensino superior"])
 escolaridade.grid(row=4, column=1)
@@ -63,6 +63,8 @@ tk.Radiobutton(janela, text= "Estágiario t.i",font= ("Arial") , value =5,variab
 
 
 tk.Button(janela, text= "enviar", command= enviar).grid(row=11, column=1, pady=20)
+
+
 
 
 
